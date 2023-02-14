@@ -4,12 +4,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:viewModels="using:SensorInput.ViewModels"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-        x:Class="SensorInput.Views.DbConnectionDialogView"
-        Title="Edit Database Connection Information"
+        x:Class="SensorInput.Views.DataUploadConnectionDialogView"
+        Title="Edit Data Upload Connection Information"
         MaxHeight="250"
         MaxWidth="500"
         MinHeight="250"
-        MinWidth="500">
+        MinWidth="500"
+        WindowStartupLocation="CenterOwner">
     <Window.DataTemplates>
         <!-- PostresQL Configuration View -->
         <DataTemplate DataType="{x:Type viewModels:PostgresConnectionInfoViewModel}">

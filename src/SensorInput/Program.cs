@@ -1,13 +1,18 @@
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.ReactiveUI;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Configuration.Json;
 using SensorInput.DependencyInjection;
 using SensorInput.Models;
 using SensorInput.Models.Interfaces;
 using SensorInput.ViewModels;
 using SensorInput.ViewModels.Interfaces;
+using SensorInput.Services;
+using SensorInput.Services.Interfaces;
 using Splat;
 using System;
+using System.IO;
 
 namespace SensorInput;
 internal class Program
@@ -18,6 +23,12 @@ internal class Program
     [STAThread]
     public static void Main(string[] args)
     {
+        var config = new ConfigurationBuilder()
+                      .AddJsonFile("appsettings.json")
+                      .AddEnvironmentVariables()
+                      .Build();
+        
+        Locator.CurrentMutable.RegisterConstant(new ApplicationSettingsService(config), typeof(IApplicationSettingsService));
         RegisterDependencies();
         BuildAvaloniaApp()
         .StartWithClassicDesktopLifetime(args);
@@ -32,6 +43,8 @@ internal class Program
 
     private static void RegisterDependencies()
     {
-        //Locator.CurrentMutable.RegisterConstant(() => new )
+        Locator.CurrentMutable.Register(() => new DataUploadConnectionDialogViewModel(
+            Locator.Current.GetServiceSafe<IApplicationSettingsService>()
+        ), typeof(IDataUplaodConnectionDialogViewModel));
     }
 }
