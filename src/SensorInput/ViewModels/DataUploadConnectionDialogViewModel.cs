@@ -2,12 +2,12 @@
 using SensorInput.ViewModels.Interfaces;
 
 namespace SensorInput.ViewModels;
-public class DataUploadConnectionDialogViewModel : ViewModelBase, IDataUplaodConnectionDialogViewModel
+public class DataUploadConnectionDialogViewModel : ViewModelBase, IDataUploadConnectionDialogViewModel
 {
-    public IDataUploadConnectionInfoViewModel DatabaseConnectionInfo { get; } = null!;
+    public IDataUploadConnectionInfoViewModel DataUploadConnectionInfo { get; } = null!;
 
     public DataUploadConnectionDialogViewModel(IApplicationSettingsService applicationSettings)
     {
-        this.DatabaseConnectionInfo = DataUploadConnectionInfoViewModel.Create(applicationSettings.ConnectionSettingsServices[applicationSettings.PreferredConnectionType]);
+        this.DataUploadConnectionInfo = DataUploadConnectionInfoViewModel.Create(applicationSettings.ConnectionSettingsServices[applicationSettings.PreferredConnectionType]);
     }
 }

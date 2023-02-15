@@ -3,5 +3,5 @@
 namespace SensorInput.ViewModels.Interfaces;
 public interface IDataUploadConnectionInfoViewModel
 {
-    IDataUploadConnectionInfo DatabaseConnectionInfo { get; }
+    IDataUploadConnectionInfo DataUploadConnectionInfo { get; }
 }

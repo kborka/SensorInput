@@ -13,12 +13,14 @@ public partial class MainWindow : ReactiveWindow<MainWindowViewModel>
         this.WhenActivated(d => d(ViewModel!.ShowDataConnectionDialog.RegisterHandler(DoShowDataConnectionDialogAsync)));
     }
 
-    private async Task DoShowDataConnectionDialogAsync(InteractionContext<IDataUplaodConnectionDialogViewModel, IDataUploadConnectionInfoViewModel?> interaction)
+    private async Task DoShowDataConnectionDialogAsync(InteractionContext<IDataUploadConnectionDialogViewModel, IDataUploadConnectionInfoViewModel?> interaction)
     {
-        var dialog = new DataUploadConnectionDialogView();
-        dialog.DataContext = interaction.Input;
+        var dialog = new DataUploadConnectionDialogView
+        {
+            DataContext = interaction.Input
+        };
 
-        var result = await dialog.ShowDialog<IDataUploadConnectionInfoViewModel>(this);
+        var result = await dialog.ShowDialog<IDataUploadConnectionInfoViewModel?>(this);
         interaction.SetOutput(result);
     }
 }

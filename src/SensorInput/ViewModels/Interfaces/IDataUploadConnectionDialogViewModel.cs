@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace SensorInput.ViewModels.Interfaces;
-public interface IDataUplaodConnectionDialogViewModel
+public interface IDataUploadConnectionDialogViewModel
 {
-    IDataUploadConnectionInfoViewModel DatabaseConnectionInfo { get; }
+    IDataUploadConnectionInfoViewModel DataUploadConnectionInfo { get; }
 }

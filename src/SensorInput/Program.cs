@@ -45,6 +45,6 @@ internal class Program
     {
         Locator.CurrentMutable.Register(() => new DataUploadConnectionDialogViewModel(
             Locator.Current.GetServiceSafe<IApplicationSettingsService>()
-        ), typeof(IDataUplaodConnectionDialogViewModel));
+        ), typeof(IDataUploadConnectionDialogViewModel));
     }
 }

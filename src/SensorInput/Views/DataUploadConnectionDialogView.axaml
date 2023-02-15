@@ -5,6 +5,7 @@
         xmlns:viewModels="using:SensorInput.ViewModels"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="SensorInput.Views.DataUploadConnectionDialogView"
+        CanResize="False"
         Title="Edit Data Upload Connection Information"
         MaxHeight="250"
         MaxWidth="500"
@@ -16,23 +17,23 @@
         <DataTemplate DataType="{x:Type viewModels:PostgresConnectionInfoViewModel}">
             <Grid ColumnDefinitions="Auto,*" RowDefinitions="Auto,Auto,Auto,Auto,Auto">
                 <TextBlock Grid.Column="0" Grid.Row="0" Margin="7,11" Text="Host:"/>
-                <TextBox Grid.Column="1" Grid.Row="0" Margin="0,11" Text="{Binding Path=Host}"/>
+                <TextBox Grid.Column="1" Grid.Row="0" Margin="0,11,7,11" Text="{Binding Path=Host}"/>
 
                 <TextBlock Grid.Column="0" Grid.Row="1" Margin="7,11" Text="Database:"/>
-                <TextBox Grid.Column="1" Grid.Row="1" Margin="0,11" Text="{Binding Path=Database}"/>
+                <TextBox Grid.Column="1" Grid.Row="1" Margin="0,11,7,11" Text="{Binding Path=Database}"/>
 
                 <TextBlock Grid.Column="0" Grid.Row="2" Margin="7,11" Text="User name:"/>
-                <TextBox Grid.Column="1" Grid.Row="2" Margin="0,11" Text="{Binding Path=Username}"/>
+                <TextBox Grid.Column="1" Grid.Row="2" Margin="0,11,7,11" Text="{Binding Path=Username}"/>
 
                 <TextBlock Grid.Column="0" Grid.Row="3" Margin="7,11" Text="Password:"/>
-                <TextBox Grid.Column="1" Grid.Row="3" Margin="0,11" Text="{Binding Path=Password}" PasswordChar="*"/>
+                <TextBox Grid.Column="1" Grid.Row="3" Margin="0,11,7,11" Text="{Binding Path=Password}" PasswordChar="*"/>
 
                 <StackPanel Grid.Column="2" Grid.Row="4" HorizontalAlignment="Right" Orientation="Horizontal">
                     <Button Content="Save" Margin="7,11" HorizontalAlignment="Right"/>
-                    <Button Content="Cancel" Margin="0,11" HorizontalAlignment="Right" IsCancel="True"/>
+                    <Button Content="Cancel" Margin="0,11,7,11" HorizontalAlignment="Right" IsCancel="True"/>
                 </StackPanel>
             </Grid>
         </DataTemplate>
     </Window.DataTemplates>
-    <ContentControl Content="{Binding}"/>
+    <ContentControl Content="{Binding Path=DataUploadConnectionInfo}"/>
 </Window>

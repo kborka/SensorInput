@@ -5,11 +5,11 @@ using System;
 namespace SensorInput.ViewModels;
 public abstract class DataUploadConnectionInfoViewModel : ViewModelBase, IDataUploadConnectionInfoViewModel
 {
-    public IDataUploadConnectionInfo DatabaseConnectionInfo { get; }
+    public IDataUploadConnectionInfo DataUploadConnectionInfo { get; }
 
     public DataUploadConnectionInfoViewModel(IDataUploadConnectionInfo connectionInfo)
     {
-        DatabaseConnectionInfo = connectionInfo;
+        DataUploadConnectionInfo = connectionInfo;
     }
 
     public static IDataUploadConnectionInfoViewModel Create(IDataUploadConnectionInfo dataUploadConnectionInfo)
